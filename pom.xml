@@ -89,12 +89,11 @@
 		</repository>
 	</repositories>
 	<modules>
+		<module>../alrr-bibliotecas</module>
 		<module>alrr-ejb-dep</module>
-
 		<module>alrr-web-dep</module>
-
 		<module>alrr-jpa-dep</module>
-		<module>../alrr-projetos</module>
+
 		<module>alrr-utils-dep</module>
 	</modules>
 </project>
