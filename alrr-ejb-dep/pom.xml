@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>alrr-ejb-dep</artifactId>
-  <packaging>pom</packaging>
-  <name>alrr-ejb-dependencias</name>
-  <description>Adiciona todas as dependencias básicas que são usadas num projeto web.</description>
- <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>alrr-ejb-dep</artifactId>
+	<packaging>pom</packaging>
+	<name>alrr-ejb-dependencias</name>
+	<description>Adiciona todas as dependencias básicas que são usadas num projeto web.</description>
+	<dependencies>
 		<dependency>
 			<groupId>org.jboss.spec.javax.ejb</groupId>
 			<artifactId>jboss-ejb-api_3.2_spec</artifactId>
@@ -47,9 +49,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-  <parent>
-  	<groupId>br.leg.rr.al</groupId>
-  	<artifactId>alrr-parent</artifactId>
-  	<version>1.0.0</version>
-  </parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<parent>
+		<groupId>br.leg.rr.al</groupId>
+		<artifactId>alrr-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 </project>
