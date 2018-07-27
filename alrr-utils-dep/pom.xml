@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>alrr-utils-dep</artifactId>
 	<packaging>pom</packaging>
-	<name>alrr-utils-dep</name>
+	<name>alrr-utils-dependencias</name>
 	<description>Adiciona todas as dependencias básicas que são usadas num projeto web.</description>
 	<developers>
 		<developer>

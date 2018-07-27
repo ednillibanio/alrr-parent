@@ -41,17 +41,6 @@
 			<artifactId>hibernate-search-orm</artifactId>
 		</dependency>
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>wildfly-javaee7-with-tools</artifactId>
-				<version>12.0.0.Final</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<parent>
 		<groupId>br.leg.rr.al</groupId>
 		<artifactId>alrr-parent</artifactId>
