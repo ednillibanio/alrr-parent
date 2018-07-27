@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<name>alrr-parent</name>
+	<modelVersion>4.0.0</modelVersion>
+	<version>1.0.0</version>
+	<groupId>br.leg.rr.al</groupId>
+	<artifactId>alrr-parent</artifactId>
+	<packaging>pom</packaging>
+	<developers>
+		<developer>
+			<id>ednil</id>
+			<name>Ednil Libanio da Costa Junior</name>
+			<email>ednil.libanio@gmail.com</email>
+		</developer>
+	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+		<!-- Define the version of the JBoss BOMs we want to import to specify 
+			tested stacks. -->
+		<version.jboss.bom>12.0.0.Final</version.jboss.bom>
+		<version.wildfly>12.0.0.Final</version.wildfly>
+		<version.apache.commons.lang3>3.7</version.apache.commons.lang3>
+
+
+		<!-- other plugin versions -->
+
+		<!-- maven-compiler-plugin -->
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>wildfly-javaee7-with-tools</artifactId>
+				<version>${version.jboss.bom}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- The WildFly plugin deploys your ear to a local JBoss AS container -->
+				<!-- Due to Maven's lack of intelligence with EARs we need to configure 
+					the wildfly maven plugin to skip deployment for all modules. We then enable 
+					it specifically in the ear module. -->
+				<plugin>
+					<groupId>org.wildfly.plugins</groupId>
+					<artifactId>wildfly-maven-plugin</artifactId>
+					<version>${version.wildfly.maven.plugin}</version>
+					<inherited>true</inherited>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${version.jar.plugin}</version>
+					<configuration>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>bintray-deluan-maven</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/deluan/maven</url>
+		</repository>
+	</repositories>
+	<modules>
+		<module>alrr-ejb-dep</module>
+
+		<module>alrr-web-dep</module>
+
+		<module>alrr-jpa-dep</module>
+		<module>../alrr-projetos</module>
+		<module>alrr-utils-dep</module>
+	</modules>
+</project>
