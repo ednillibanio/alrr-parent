@@ -21,17 +21,17 @@
 
 		<!-- Define the version of the JBoss BOMs we want to import to specify 
 			tested stacks. -->
-		<version.jboss.bom>12.0.0.Final</version.jboss.bom>
-		<version.wildfly>12.0.0.Final</version.wildfly>
+		<version.jboss.bom>14.0.1.Final</version.jboss.bom>
+		<version.wildfly>14.0.1.Final</version.wildfly>
 
 		<version.wildfly.maven.plugin>1.2.2.Final</version.wildfly.maven.plugin>
-		<version.compiler.plugin>3.7.0</version.compiler.plugin>
+
 		<version.ear.plugin>3.0.1</version.ear.plugin>
 		<version.ejb.plugin>2.3</version.ejb.plugin>
 		<version.jar.plugin>3.1.0</version.jar.plugin>
+		<version.surefire.plugin>2.22.0</version.surefire.plugin>
+		<version.failsafe.plugin>2.22.0</version.failsafe.plugin>
 		<version.ejb>3.2</version.ejb>
-
-
 
 		<!-- maven plugins -->
 		<version.install.plugin>2.5.2</version.install.plugin>
@@ -43,8 +43,10 @@
 		<version.helper.plugin>3.0.0</version.helper.plugin>
 
 		<!-- maven-compiler-plugin -->
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
+		<version.compiler.plugin>3.8.0</version.compiler.plugin>
+		<java.version>11</java.version>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
 
 
 	</properties>
@@ -53,7 +55,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>org.wildfly.bom</groupId>
-				<artifactId>wildfly-javaee7-with-tools</artifactId>
+				<artifactId>wildfly-javaee8-with-tools</artifactId>
 				<version>${version.jboss.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
@@ -64,6 +66,17 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- This plugin helps finding the latest plugin or dependency versions 
+					for your modules. Open up the terminal and execute this command to find the 
+					plugin versions you have to update: versions:display-plugin-updates -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<generateBackupPoms>false</generateBackupPoms>
+					</configuration>
+				</plugin>
 				<!-- The WildFly plugin deploys your ear to a local JBoss AS container -->
 				<!-- Due to Maven's lack of intelligence with EARs we need to configure 
 					the wildfly maven plugin to skip deployment for all modules. We then enable 
@@ -142,6 +155,27 @@
 						<skinnyWars>true</skinnyWars>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.0</version>
+					<configuration>
+						<argLine>
+							--illegal-access=permit
+						</argLine>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.22.0</version>
+					<configuration>
+						<argLine>
+							--illegal-access=permit
+						</argLine>
+					</configuration>
+				</plugin>
+
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
