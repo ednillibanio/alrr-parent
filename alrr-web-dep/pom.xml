@@ -10,18 +10,6 @@
   		<artifactId>cdi-api</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.jboss.spec.javax.faces</groupId>
-  		<artifactId>jboss-jsf-api_2.2_spec</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jboss.spec.javax.servlet</groupId>
-  		<artifactId>jboss-servlet-api_3.1_spec</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jboss.spec.javax.ejb</groupId>
-  		<artifactId>jboss-ejb-api_3.2_spec</artifactId>
-  	</dependency>
-  	<dependency>
   		<groupId>javax.validation</groupId>
   		<artifactId>validation-api</artifactId>
   	</dependency>
@@ -34,16 +22,24 @@
   		<artifactId>hibernate-search-orm</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.hibernate.javax.persistence</groupId>
-  		<artifactId>hibernate-jpa-2.1-api</artifactId>
+  		<groupId>org.slf4j</groupId>
+  		<artifactId>slf4j-api</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.hibernate</groupId>
+  		<groupId>org.jboss.spec.javax.faces</groupId>
+  		<artifactId>jboss-jsf-api_2.3_spec</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.jboss.spec.javax.servlet</groupId>
+  		<artifactId>jboss-servlet-api_4.0_spec</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.hibernate.validator</groupId>
   		<artifactId>hibernate-validator</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-api</artifactId>
+  		<groupId>javax.persistence</groupId>
+  		<artifactId>javax.persistence-api</artifactId>
   	</dependency>
   </dependencies>
   <parent>
@@ -53,6 +49,5 @@
   </parent>
   <properties>
   	<version.primefaces>6.2</version.primefaces>
-  	<version.shiro.web>1.4</version.shiro.web>
   </properties>
 </project>
