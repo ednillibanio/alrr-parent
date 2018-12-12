@@ -24,7 +24,7 @@
 		<version.jboss.bom>14.0.1.Final</version.jboss.bom>
 		<version.wildfly>14.0.1.Final</version.wildfly>
 
-		<version.wildfly.maven.plugin>1.2.2.Final</version.wildfly.maven.plugin>
+		<version.wildfly.maven.plugin>2.0.0.Final</version.wildfly.maven.plugin>
 
 		<version.ear.plugin>3.0.1</version.ear.plugin>
 		<version.ejb.plugin>2.3</version.ejb.plugin>
@@ -131,12 +131,12 @@
 					<configuration>
 						<source>${maven.compiler.source}</source>
 						<target>${maven.compiler.target}</target>
-						<!-- <compilerArgument>-proc:none</compilerArgument> -->
 						<debug>true</debug>
 						<optimize>true</optimize>
 						<forceJavacCompilerUse>true</forceJavacCompilerUse>
 					</configuration>
 				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-ejb-plugin</artifactId>
@@ -181,7 +181,6 @@
 						</argLine>
 					</configuration>
 				</plugin>
-
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
@@ -204,10 +203,9 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
+			<!-- COMENTEI PRA TESTAR. RESPONSÁVEL POR INSTALAR NO REPOS LOCAL. -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-install-plugin</artifactId> 
+				</plugin> -->
 		</plugins>
 	</build>
 	<modules>
