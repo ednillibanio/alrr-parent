@@ -106,6 +106,7 @@
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${version.jar.plugin}</version>
 					<configuration>
+						<excludes>src/main/resources/sql/**</excludes>
 						<archive>
 							<addMavenDescriptor>false</addMavenDescriptor>
 						</archive>
