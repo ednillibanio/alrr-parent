@@ -57,7 +57,7 @@
   <parent>
   	<groupId>br.leg.rr.al</groupId>
   	<artifactId>alrr-parent</artifactId>
-  	<version>1.0.0</version>
+  	<version>1.0.0-SNAPSHOT</version>
   </parent>
   <properties>
   	<version.primefaces>6.2</version.primefaces>
